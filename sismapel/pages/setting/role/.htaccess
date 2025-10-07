@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Hilangkan .php di URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
+# Routing untuk format /file/id
+RewriteRule ^(.*)/([0-9]+)/?$ $1.php?id=$2 [L,QSA]
